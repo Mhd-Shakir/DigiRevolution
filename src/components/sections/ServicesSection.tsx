@@ -1,0 +1,157 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Code, Smartphone, Globe, Cloud, BarChart, Shield } from 'lucide-react';
+
+const ServicesSection = () => {
+  const services = [
+    {
+      icon: Code,
+      title: 'Web Development',
+      description: 'Custom web applications built with modern technologies and best practices.',
+      features: ['React & Next.js', 'Node.js Backend', 'Database Design', 'API Development'],
+      color: 'from-blue-500 to-cyan-500',
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile Apps',
+      description: 'Native and cross-platform mobile applications for iOS and Android.',
+      features: ['React Native', 'Flutter', 'iOS Development', 'Android Development'],
+      color: 'from-purple-500 to-pink-500',
+    },
+    {
+      icon: Globe,
+      title: 'Digital Marketing',
+      description: 'Comprehensive digital marketing strategies to grow your online presence.',
+      features: ['SEO Optimization', 'Social Media', 'Content Marketing', 'PPC Campaigns'],
+      color: 'from-green-500 to-emerald-500',
+    },
+    {
+      icon: Cloud,
+      title: 'Cloud Solutions',
+      description: 'Scalable cloud infrastructure and migration services for modern businesses.',
+      features: ['AWS & Azure', 'DevOps', 'Microservices', 'Container Orchestration'],
+      color: 'from-orange-500 to-red-500',
+    },
+    {
+      icon: BarChart,
+      title: 'Data Analytics',
+      description: 'Transform your data into actionable insights with advanced analytics.',
+      features: ['Business Intelligence', 'Machine Learning', 'Data Visualization', 'Reporting'],
+      color: 'from-indigo-500 to-purple-500',
+    },
+    {
+      icon: Shield,
+      title: 'Cybersecurity',
+      description: 'Protect your digital assets with comprehensive security solutions.',
+      features: ['Security Audits', 'Penetration Testing', 'Compliance', 'Risk Assessment'],
+      color: 'from-red-500 to-pink-500',
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  };
+
+  return (
+    <section className="py-24 bg-dark-800/50">
+      <div className="container mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-8">
+            Our <span className="text-primary-400">Services</span>
+          </h2>
+          <p className="text-xl text-dark-300 max-w-4xl mx-auto leading-relaxed">
+            We offer comprehensive digital solutions to help your business thrive 
+            in the digital age. From web development to cloud solutions, we've got you covered.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group relative bg-dark-900 rounded-xl p-8 border border-dark-700 hover:border-primary-500/50 transition-all duration-300 overflow-hidden"
+            >
+              {/* Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+              
+              {/* Icon */}
+              <div className={`inline-flex p-4 rounded-lg bg-gradient-to-br ${service.color} mb-8`}>
+                <service.icon size={28} className="text-white" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-2xl font-semibold text-white mb-6 group-hover:text-primary-300 transition-colors duration-300">
+                {service.title}
+              </h3>
+              
+              <p className="text-dark-300 mb-8 leading-relaxed text-base">
+                {service.description}
+              </p>
+
+              {/* Features */}
+              <ul className="space-y-3">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center text-sm text-dark-400">
+                    <div className="w-2 h-2 bg-primary-400 rounded-full mr-4" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Hover Effect */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-20"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-primary-500/25"
+          >
+            View All Services
+          </motion.button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default ServicesSection;
