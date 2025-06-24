@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, Zap, Globe, Smartphone } from 'lucide-react';
+import { ArrowRight, Play, Zap, Globe, Smartphone, EyeIcon } from 'lucide-react';
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -39,6 +39,7 @@ const HeroSection = () => {
     { icon: Zap, delay: 0, x: '10%', y: '20%' },
     { icon: Globe, delay: 1, x: '80%', y: '30%' },
     { icon: Smartphone, delay: 2, x: '15%', y: '70%' },
+    { icon: EyeIcon, delay: 3, x: '75%', y: '70%' },
   ];
 
   return (
@@ -177,9 +178,9 @@ const HeroSection = () => {
             className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
           >
             {[
-              { number: '500+', label: 'Projects Completed' },
-              { number: '98%', label: 'Client Satisfaction' },
-              { number: '50+', label: 'Team Members' },
+              { number: '30+', label: 'Projects Completed' },
+              { number: '100%', label: 'Client Satisfaction' },
+              { number: '10+', label: 'Team Members' },
             ].map((stat, index) => (
               <motion.div
                 key={index}

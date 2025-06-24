@@ -1,13 +1,13 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Award, Target, Lightbulb } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
   const stats = [
-    { icon: Users, number: '50+', label: 'Expert Team Members' },
-    { icon: Award, number: '500+', label: 'Successful Projects' },
-    { icon: Target, number: '98%', label: 'Client Satisfaction' },
-    { icon: Lightbulb, number: '5+', label: 'Years of Innovation' },
+    { icon: Users, number: '10+', label: 'Expert Team Members' },
+    { icon: Award, number: '30+', label: 'Successful Projects' },
+    { icon: Target, number: '108%', label: 'Client Satisfaction' },
+    { icon: Lightbulb, number: '1.5+', label: 'Years of Innovation' },
   ];
 
   const values = [
@@ -93,7 +93,7 @@ const AboutSection = () => {
                 Our Impact in Numbers
               </h3>
 
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-6">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
@@ -130,13 +130,15 @@ const AboutSection = () => {
                   <p className="text-dark-300 mb-6 text-base">
                     Let's discuss how we can help you achieve your digital goals.
                   </p>
-                  <motion.button
+                  <Link to="/contact">
+                    <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200"
                   >
                     Get in Touch
                   </motion.button>
+                  </Link>
                 </div>
               </motion.div>
             </div>

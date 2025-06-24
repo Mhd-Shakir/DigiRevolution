@@ -74,7 +74,7 @@ const Header = () => {
               to="/contact"
               className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200"
             >
-              Get Started
+              Connect
             </Link>
           </motion.div>
 
@@ -116,7 +116,7 @@ const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 text-center mt-4"
                 >
-                  Get Started
+                  Connect
                 </Link>
               </nav>
             </div>

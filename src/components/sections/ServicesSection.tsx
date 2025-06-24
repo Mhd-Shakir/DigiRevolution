@@ -1,50 +1,86 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Code, Smartphone, Globe, Cloud, BarChart, Shield } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Code, Smartphone, Globe, Palette, Server, Video } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
     {
       icon: Code,
-      title: 'Web Development',
-      description: 'Custom web applications built with modern technologies and best practices.',
-      features: ['React & Next.js', 'Node.js Backend', 'Database Design', 'API Development'],
-      color: 'from-blue-500 to-cyan-500',
+      title: "Web Development",
+      description:
+        "Custom web applications built with modern technologies and best practices.",
+      features: [
+        "React & Next.js",
+        "Node.js Backend",
+        "Database Design",
+        "API Development",
+      ],
+      color: "from-blue-500 to-cyan-500",
     },
     {
       icon: Smartphone,
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications for iOS and Android.',
-      features: ['React Native', 'Flutter', 'iOS Development', 'Android Development'],
-      color: 'from-purple-500 to-pink-500',
+      title: "Mobile Apps",
+      description:
+        "Native and cross-platform mobile applications for iOS and Android.",
+      features: [
+        "React Native",
+        "Flutter",
+        "iOS Development",
+        "Android Development",
+      ],
+      color: "from-purple-500 to-pink-500",
     },
     {
       icon: Globe,
-      title: 'Digital Marketing',
-      description: 'Comprehensive digital marketing strategies to grow your online presence.',
-      features: ['SEO Optimization', 'Social Media', 'Content Marketing', 'PPC Campaigns'],
-      color: 'from-green-500 to-emerald-500',
+      title: "Digital Marketing",
+      description:
+        "Comprehensive digital marketing strategies to grow your online presence.",
+      features: [
+        "SEO Optimization",
+        "Social Media",
+        "Content Marketing",
+        "PPC Campaigns",
+      ],
+      color: "from-green-500 to-emerald-500",
     },
     {
-      icon: Cloud,
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud infrastructure and migration services for modern businesses.',
-      features: ['AWS & Azure', 'DevOps', 'Microservices', 'Container Orchestration'],
-      color: 'from-orange-500 to-red-500',
+      icon: Palette,
+      title: "Graphic & Logo Design",
+      description:
+        "Creative, brand-focused designs including logos, UI/UX, and marketing visuals to make your brand stand out.",
+      features: [
+        "Custom Logo Design",
+        "UI/UX Mockups",
+        "Social Media Creatives",
+        "Branding Kits",
+      ],
+      color: "from-pink-500 to-purple-500",
     },
     {
-      icon: BarChart,
-      title: 'Data Analytics',
-      description: 'Transform your data into actionable insights with advanced analytics.',
-      features: ['Business Intelligence', 'Machine Learning', 'Data Visualization', 'Reporting'],
-      color: 'from-indigo-500 to-purple-500',
+      icon: Server,
+      title: "Domain & Hosting",
+      description:
+        "We set up your domain and hosting for a secure, high-performance online presence.",
+      features: [
+        "Domain Registration",
+        "Hosting Setup",
+        "SSL Installation",
+        "Business Email",
+      ],
+      color: "from-indigo-500 to-purple-500",
     },
     {
-      icon: Shield,
-      title: 'Cybersecurity',
-      description: 'Protect your digital assets with comprehensive security solutions.',
-      features: ['Security Audits', 'Penetration Testing', 'Compliance', 'Risk Assessment'],
-      color: 'from-red-500 to-pink-500',
+      icon: Video,
+      title: "Video Editing",
+      description:
+        "Creative video editing for YouTube, social media, and promotional content.",
+      features: [
+        "Reels & Shorts",
+        "YouTube Edits",
+        "Subtitles & Audio Sync",
+        "Color Grading",
+      ],
+      color: "from-yellow-500 to-orange-500",
     },
   ];
 
@@ -63,7 +99,7 @@ const ServicesSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -81,8 +117,9 @@ const ServicesSection = () => {
             Our <span className="text-primary-400">Services</span>
           </h2>
           <p className="text-xl text-dark-300 max-w-4xl mx-auto leading-relaxed">
-            We offer comprehensive digital solutions to help your business thrive 
-            in the digital age. From web development to cloud solutions, we've got you covered.
+            We offer comprehensive digital solutions to help your business
+            thrive in the digital age. From web development to cloud solutions,
+            we've got you covered.
           </p>
         </motion.div>
 
@@ -101,10 +138,14 @@ const ServicesSection = () => {
               className="group relative bg-dark-900 rounded-xl p-8 border border-dark-700 hover:border-primary-500/50 transition-all duration-300 overflow-hidden"
             >
               {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+              />
+
               {/* Icon */}
-              <div className={`inline-flex p-4 rounded-lg bg-gradient-to-br ${service.color} mb-8`}>
+              <div
+                className={`inline-flex p-4 rounded-lg bg-gradient-to-br ${service.color} mb-8`}
+              >
                 <service.icon size={28} className="text-white" />
               </div>
 
@@ -112,7 +153,7 @@ const ServicesSection = () => {
               <h3 className="text-2xl font-semibold text-white mb-6 group-hover:text-primary-300 transition-colors duration-300">
                 {service.title}
               </h3>
-              
+
               <p className="text-dark-300 mb-8 leading-relaxed text-base">
                 {service.description}
               </p>
@@ -120,7 +161,10 @@ const ServicesSection = () => {
               {/* Features */}
               <ul className="space-y-3">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-dark-400">
+                  <li
+                    key={featureIndex}
+                    className="flex items-center text-sm text-dark-400"
+                  >
                     <div className="w-2 h-2 bg-primary-400 rounded-full mr-4" />
                     {feature}
                   </li>
@@ -141,6 +185,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-20"
         >
+          <Link to="/services">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -148,6 +193,7 @@ const ServicesSection = () => {
           >
             View All Services
           </motion.button>
+          </Link>
         </motion.div>
       </div>
     </section>
