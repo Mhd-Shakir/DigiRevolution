@@ -77,10 +77,10 @@ const CTASection = () => {
               <div className="p-4 rounded-lg bg-primary-500/20">
                 <Mail size={28} className="text-primary-400" />
               </div>
-              <div className="text-left">
+              <a href='mailto:digirevolution1@gmail.com' className="text-left">
                 <div className="text-white font-medium text-lg mb-1">Email Us</div>
-                <div className="text-dark-300">hello@digirevolution.com</div>
-              </div>
+                <a href='mailto:digirevolution1@gmail.com' className="text-dark-300">hello@digirevolution.com</a>
+              </a>
             </motion.div>
 
             <motion.div
@@ -90,10 +90,10 @@ const CTASection = () => {
               <div className="p-4 rounded-lg bg-primary-500/20">
                 <Phone size={28} className="text-primary-400" />
               </div>
-              <div className="text-left">
+              <a href="tel:+919745614587" className="text-left">
                 <div className="text-white font-medium text-lg mb-1">Call Us</div>
-                <div className="text-dark-300">+1 (555) 123-4567</div>
-              </div>
+                <a href="tel:+919745614587" className="text-dark-300">+91 9745614587</a>
+              </a>
             </motion.div>
           </motion.div>
 

@@ -6,7 +6,7 @@ const AboutSection = () => {
   const stats = [
     { icon: Users, number: '10+', label: 'Expert Team Members' },
     { icon: Award, number: '30+', label: 'Successful Projects' },
-    { icon: Target, number: '108%', label: 'Client Satisfaction' },
+    { icon: Target, number: '100%', label: 'Client Satisfaction' },
     { icon: Lightbulb, number: '1.5+', label: 'Years of Innovation' },
   ];
 

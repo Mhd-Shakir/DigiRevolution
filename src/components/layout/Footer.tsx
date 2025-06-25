@@ -8,9 +8,9 @@ const Footer = () => {
   const footerLinks = {
     Services: [
       { name: 'Web Development', href: '/services' },
-      { name: 'Mobile Apps', href: '/services' },
+      { name: 'AI Chat Bots', href: '/services' },
       { name: 'Digital Marketing', href: '/services' },
-      { name: 'Cloud Solutions', href: '/services' },
+      { name: 'Video Editing', href: '/services' },
     ],
     Company: [
       { name: 'About Us', href: '/about' },
@@ -27,10 +27,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Facebook, href: 'https://www.google.com', label: 'Facebook' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Linkedin, href: '', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/digirevolution_/', label: 'Instagram' },
   ];
 
   return (
