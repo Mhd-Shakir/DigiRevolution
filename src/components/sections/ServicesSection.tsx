@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Code, Smartphone, Globe, Palette, Server, Video } from "lucide-react";
+import { Code, Globe, Palette, Server, Video, Bot } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
@@ -18,17 +18,12 @@ const ServicesSection = () => {
       color: "from-blue-500 to-cyan-500",
     },
     {
-      icon: Smartphone,
-      title: "Mobile Apps",
+      icon: Bot,
+      title: "AI Chat Bots",
       description:
-        "Native and cross-platform mobile applications for iOS and Android.",
-      features: [
-        "React Native",
-        "Flutter",
-        "iOS Development",
-        "Android Development",
-      ],
-      color: "from-purple-500 to-pink-500",
+        "Smart chatbots to automate replies, capture leads, and support users 24/7.",
+      features: ["Automated Support","Lead Capture","Multilingual Chat","Custom Personality",],
+      color: "from-red-500 to-purple-600",
     },
     {
       icon: Globe,
@@ -186,13 +181,13 @@ const ServicesSection = () => {
           className="text-center mt-20"
         >
           <Link to="/services">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-primary-500/25"
-          >
-            View All Services
-          </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-primary-600 hover:bg-primary-700 text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-primary-500/25"
+            >
+              View All Services
+            </motion.button>
           </Link>
         </motion.div>
       </div>
