@@ -39,7 +39,7 @@ const Header = () => {
             <img 
               src="/DigiRevolution_logo.png" 
               alt="DigiRevolution" 
-              className="h-20 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
