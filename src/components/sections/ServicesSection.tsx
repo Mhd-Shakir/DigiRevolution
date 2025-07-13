@@ -10,10 +10,10 @@ const ServicesSection = () => {
       description:
         "Custom web applications built with modern technologies and best practices.",
       features: [
-        "React & Next.js",
-        "Node.js Backend",
-        "Database Design",
-        "API Development",
+        "Static Website",
+        "Full Stack Application",
+        "Ecommerce Platform",
+        "Portfolio Website",
       ],
       color: "from-blue-500 to-cyan-500",
     },

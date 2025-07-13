@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BackToTop from "./components/sections/BackToTop";
+import ScrollToTop from "./components/layout/ScrollToTop";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import HomePage from "./pages/HomePage";
@@ -26,6 +27,7 @@ function App() {
           pauseOnHover
           theme="dark"
         />
+        <ScrollToTop />
         <BackToTop/>
         <Header />
         <AnimatePresence mode="wait">

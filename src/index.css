@@ -2,19 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* index.css or tailwind.css */
+/* Custom styles for react-toastify */
+.Toastify__progress-bar {
+  background: linear-gradient(to right, #3b82f6, #60a5fa) !important;
+}
+
 .Toastify__toast {
-  @apply bg-dark-800 text-white text-sm border border-dark-500 rounded-md shadow-md px-4 py-3;
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border: 1px solid #475569 !important;
 }
 
 .Toastify__toast--success {
-  @apply border-green-500;
+  background-color: #1e293b !important;
+  border-left: 4px solid #10b981 !important;
 }
 
 .Toastify__toast--error {
-  @apply border-red-500;
+  background-color: #1e293b !important;
+  border-left: 4px solid #ef4444 !important;
 }
 
-.Toastify__progress-bar {
-  @apply bg-primary-500;
+.Toastify__toast--warning {
+  background-color: #1e293b !important;
+  border-left: 4px solid #f59e0b !important;
+}
+
+.Toastify__toast--info {
+  background-color: #1e293b !important;
+  border-left: 4px solid #3b82f6 !important;
+}
+
+.Toastify__close-button {
+  color: #94a3b8 !important;
+}
+
+.Toastify__close-button:hover {
+  color: #f1f5f9 !important;
 }

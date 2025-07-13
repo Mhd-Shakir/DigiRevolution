@@ -11,6 +11,13 @@ export default function ContactSection() {
     e.preventDefault();
     if (!form.current) return;
 
+    // Debug: Log form data
+    const formData = new FormData(form.current);
+    console.log("Form data being sent:");
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
     emailjs
       .sendForm(
         "service_940rv2g",       // ✅ Your actual service ID
@@ -41,7 +48,7 @@ export default function ContactSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let’s` <span className="text-primary-400">Connect</span>
+            Let's <span className="text-primary-400">Connect</span>
           </h2>
           <p className="text-lg text-gray-300 mb-6">
             Have a project in mind or just want to say hello? We'd love to hear from you.
@@ -91,6 +98,15 @@ export default function ContactSection() {
             <input
               type="email"
               name="from_email"
+              required
+              className="w-full bg-dark-700 border border-dark-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm mb-1">Phone Number</label>
+            <input
+              type="tel"
+              name="user_phone"
               required
               className="w-full bg-dark-700 border border-dark-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
