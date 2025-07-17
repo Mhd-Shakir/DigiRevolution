@@ -1,40 +1,59 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function ContactSection() {
   const form = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.current) return;
 
-    // Debug: Log form data
     const formData = new FormData(form.current);
-    console.log("Form data being sent:");
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    // Convert FormData values to string (they can be FormDataEntryValue | null)
+    const data = {
+      name: formData.get("name")?.toString() || "",
+      email: formData.get("email")?.toString() || "",
+      phone: formData.get("phone")?.toString() || "",
+      message: formData.get("message")?.toString() || "",
+    };
 
-    emailjs
-      .sendForm(
-        "service_940rv2g",       // ✅ Your actual service ID
-        "template_s7dn6x9",      // ✅ Your actual template ID
-        form.current,
-        "F0K24r_0-JT3JkL6e"      // ✅ Your actual public key (user ID)
-      )
-      .then(
-        () => {
-          toast.success("Message sent successfully!");
-          form.current?.reset();
-        },
-        (error) => {
-          console.error("EmailJS Error:", error.text);
-          toast.error("Failed to send message. Please try again.");
+    try {
+      setLoading(true);
+
+      // Axios by default sends JS objects as JSON, but make sure to set headers
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/contact`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
+
+      if (response.data && response.data.success) {
+        toast.success("Message sent successfully!");
+        form.current.reset();
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch (error: unknown) {
+      // Try to show a more specific error if available
+      if (error && typeof error === 'object' && 'response' in error && error.response && typeof error.response === 'object' && 'data' in error.response && error.response.data && typeof error.response.data === 'object' && 'error' in error.response.data) {
+        toast.error(String(error.response.data.error));
+      } else {
+        toast.error("Something went wrong!");
+      }
+      if (import.meta.env.DEV) {
+        console.error(error);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -77,7 +96,7 @@ export default function ContactSection() {
         {/* RIGHT: Contact Form */}
         <motion.form
           ref={form}
-          onSubmit={sendEmail}
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -88,7 +107,7 @@ export default function ContactSection() {
             <label className="block text-sm mb-1">Name</label>
             <input
               type="text"
-              name="from_name"
+              name="name"
               required
               className="w-full bg-dark-700 border border-dark-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
@@ -97,7 +116,7 @@ export default function ContactSection() {
             <label className="block text-sm mb-1">Email</label>
             <input
               type="email"
-              name="from_email"
+              name="email"
               required
               className="w-full bg-dark-700 border border-dark-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
@@ -106,7 +125,7 @@ export default function ContactSection() {
             <label className="block text-sm mb-1">Phone Number</label>
             <input
               type="tel"
-              name="user_phone"
+              name="phone"
               required
               className="w-full bg-dark-700 border border-dark-500 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
@@ -122,9 +141,10 @@ export default function ContactSection() {
           </div>
           <button
             type="submit"
+            disabled={loading}
             className="px-6 py-3 bg-primary-600 hover:bg-primary-700 rounded-lg text-white font-semibold shadow-lg transition-all"
           >
-            Send Message →
+            {loading ? "Sending..." : "Send Message →"}
           </button>
         </motion.form>
       </div>
